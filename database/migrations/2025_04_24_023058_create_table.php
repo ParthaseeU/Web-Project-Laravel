@@ -55,27 +55,35 @@ return new class extends Migration
             $table->foreign('SubjectCode')->references('SubjectCode')->on('subject')->onDelete('cascade');
         });
 
+
         // Create 'class_student' pivot table
         Schema::create('class_student', function (Blueprint $table) {
+            $table->id('ClassStudentID');
             $table->unsignedBigInteger('ClassID');
             $table->unsignedBigInteger('StudentID');
 
-            $table->primary(['ClassID', 'StudentID']);
             $table->foreign('ClassID')->references('ClassID')->on('class')->onDelete('cascade');
             $table->foreign('StudentID')->references('StudentID')->on('student')->onDelete('cascade');
+
+            $table->unique(['ClassID', 'StudentID']);
         });
+
 
         // Create 'class_message' table
         Schema::create('class_message', function (Blueprint $table) {
+            $table->id('ClassUserMessageID');
             $table->unsignedBigInteger('ClassID');
             $table->unsignedBigInteger('UserID');
             $table->dateTime('DateSent');
             $table->string('Message', 256);
 
-            $table->primary(['UserID', 'ClassID', 'DateSent']);
             $table->foreign('ClassID')->references('ClassID')->on('class')->onDelete('cascade');
             $table->foreign('UserID')->references('UserID')->on('user')->onDelete('cascade');
+
+
+            $table->unique(['UserID', 'ClassID', 'DateSent']);
         });
+
 
         // Create 'administrator' table
         Schema::create('administrator', function (Blueprint $table) {
