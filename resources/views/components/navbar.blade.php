@@ -17,8 +17,4 @@
             </button>
         @endif
     </div>
-
-    <div id="right-section">
-        <button id="TOC-button" class="indigoTheme roundBorder shadow">Terms & Conditions</button>
-    </div>
 </nav>

@@ -13,7 +13,7 @@ class Approval extends Model
     protected $table = 'approvals';
     protected $primaryKey = 'id';
     public $timestamps = true;
-    protected $fillable = ['user_type'];
+    protected $fillable = ['user_id', 'user_type'];
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id', 'id');

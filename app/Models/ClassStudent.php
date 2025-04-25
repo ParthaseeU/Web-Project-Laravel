@@ -13,11 +13,12 @@ class ClassStudent extends Model
     protected $table = 'class_students';
     protected $primaryKey = 'id';
     public $timestamps = true;
+    protected $fillable = ['class_id', 'student_id'];
     public function class(): BelongsTo
     {
         return $this->belongsTo(Classes::class, 'class_id', 'id');
     }
-    public function student(): BelongsTo
+    public function students(): BelongsTo
     {
         return $this->belongsTo(Student::class, 'students_id', 'id');
     }

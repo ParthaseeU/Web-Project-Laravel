@@ -13,7 +13,7 @@ class Administrator extends Model
     protected $table = 'administrators';
     protected $primaryKey = 'id';
     public $timestamps = true;
-    protected $fillable = ['date_joined'];
+    protected $fillable = ['user_id', 'date_joined'];
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id', 'id');

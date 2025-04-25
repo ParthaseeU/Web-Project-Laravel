@@ -13,7 +13,7 @@ class Classes extends Model
     protected $table = 'classes';
     protected $primaryKey = 'id';
     public $timestamps = true;
-    protected $fillable = ['level', 'class_group'];
+    protected $fillable = ['level', 'class_group', 'teachers_id', 'subjects_code'];
     public function teacher(): BelongsTo
     {
         return $this->belongsTo(Teacher::class, 'teachers_id', 'id');
@@ -24,6 +24,7 @@ class Classes extends Model
     }
     public function students(): BelongsToMany
     {
+        // No need to use withPivot() method since Pivot Table ClassStudent has no additional fields
         return $this->belongsToMany(Student::class, 'class_students', 'class_id', 'students_id');
     }
     public function classMessages(): HasMany
