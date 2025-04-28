@@ -27,7 +27,7 @@ class UserManagementController extends Controller
 
         return view('dashboard', [
             "page" => "dashboard",
-            "students" => compact('students')
+            "students" => $students
         ]);
     }
 }

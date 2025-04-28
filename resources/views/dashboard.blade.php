@@ -20,14 +20,21 @@
                         </thead>
                         <tbody>
                             @foreach ($students as $student)
-                                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer"
-                                    data-student='@json($student)' onclick="openModal(this)">
+@foreach ($students as $student)
+    <tr class="hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer"
+        data-id="{{ $student->id }}"
+        data-name="{{ $student->name }}"
+        data-email="{{ $student->email }}"
+        data-gender="{{ $student->gender }}"
+        data-dob="{{ $student->date_of_birth }}"
+        data-level="{{ $student->level }}"
+        data-classgroup="{{ $student->class_group }}"
+        onclick="openModal(this)">
+    </tr>
+@endforeach
 
-                                    <td class="px-6 py-4">{{ $student->id }}</td>
-                                    <td class="px-6 py-4">{{ $student->name }}</td>
-                                    <td class="px-6 py-4">{{ $student->email }}</td>
-                                </tr>
-                            @endforeach
+@endforeach
+
                         </tbody>
                     </table>
 
