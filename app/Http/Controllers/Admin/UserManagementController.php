@@ -25,6 +25,9 @@ class UserManagementController extends Controller
             )
             ->paginate(10); // Paginate 10 students per page
 
-        return view('dashboard', compact('students'));
+        return view('dashboard', [
+            "page" => "dashboard",
+            "students" => compact('students')
+        ]);
     }
 }
