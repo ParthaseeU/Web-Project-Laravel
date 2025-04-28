@@ -67,6 +67,8 @@ class RegisteredUserController extends Controller
             ]);
             return $user;
         });
+        var_dump($user);
+        die();
 
         event(new Registered($user));
 

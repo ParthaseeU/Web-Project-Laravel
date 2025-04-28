@@ -20,10 +20,8 @@
                         </thead>
                         <tbody>
                             @foreach ($students as $student)
-                                <tr
-                                class="hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer"
-                                data-student='@json($student)'
-                                onclick="openModal(this)">
+                                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer"
+                                    data-student='@json($student)' onclick="openModal(this)">
 
                                     <td class="px-6 py-4">{{ $student->id }}</td>
                                     <td class="px-6 py-4">{{ $student->name }}</td>
@@ -64,19 +62,19 @@
     <!-- JavaScript Section -->
     <script>
         function openModal(row) {
-          const student = JSON.parse(row.dataset.student);
+            const student = JSON.parse(row.dataset.student);
 
-          document.getElementById('studentModal').classList.remove('hidden');
-          document.getElementById('studentModal').classList.add('flex');
+            document.getElementById('studentModal').classList.remove('hidden');
+            document.getElementById('studentModal').classList.add('flex');
 
-          document.getElementById('modal-student-id').innerText = student.id ?? 'N/A';
-          document.getElementById('modal-student-name').innerText = student.name ?? 'N/A';
-          document.getElementById('modal-student-email').innerText = student.email ?? 'N/A';
-          document.getElementById('modal-student-gender').innerText = student.gender ?? 'N/A';
-          document.getElementById('modal-student-dob').innerText = student.date_of_birth ?? 'N/A';
-          document.getElementById('modal-student-level').innerText = student.level ?? 'N/A';
-          document.getElementById('modal-student-classgroup').innerText = student.class_group ?? 'N/A';
-      }
+            document.getElementById('modal-student-id').innerText = student.id ?? 'N/A';
+            document.getElementById('modal-student-name').innerText = student.name ?? 'N/A';
+            document.getElementById('modal-student-email').innerText = student.email ?? 'N/A';
+            document.getElementById('modal-student-gender').innerText = student.gender ?? 'N/A';
+            document.getElementById('modal-student-dob').innerText = student.date_of_birth ?? 'N/A';
+            document.getElementById('modal-student-level').innerText = student.level ?? 'N/A';
+            document.getElementById('modal-student-classgroup').innerText = student.class_group ?? 'N/A';
+        }
 
 
         function closeModal() {
@@ -85,4 +83,4 @@
         }
     </script>
 
-  </x-app-layout>
+</x-app-layout>
